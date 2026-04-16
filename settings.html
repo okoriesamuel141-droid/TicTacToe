@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - Tic Tac Toe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button id="backBtn" class="iconBtn"><i class="fas fa-arrow-left"></i></button>
+      <h1>Settings</h1>
+    </div>
+    <div class="settingsPage">
+      <div class="settingGroup">
+        <label>Mode:
+          <select id="modeSelect">
+            <option value="pvp">2-Player</option>
+            <option value="ai">Single-player</option>
+            <option value="online">Online Multiplayer</option>
+          </select>
+        </label>
+      </div>
+      <div class="settingGroup">
+        <label>Difficulty:
+          <select id="difficultySelect">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+      <div class="settingGroup">
+        <label>Best of:
+          <select id="bestOfSelect">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+      </div>
+      <button id="saveBtn">Save Settings</button>
+    </div>
+  </div>
+  <script src="settings.js"></script>
+</body>
+</html>

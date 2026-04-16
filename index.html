@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe (Web App)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="confettiCanvas"></canvas>
+  <div class="container">
+    <div class="header">
+      <h1>Tic Tac Toe</h1>
+      <button id="settingsBtn" class="iconBtn"><i class="fas fa-cog"></i></button>
+    </div>
+    <div id="onlinePanel" class="onlinePanel hidden">
+      <label>Room code:
+        <input id="roomInput" type="text" placeholder="ABC123" maxlength="6" />
+      </label>
+      <div class="onlineControls">
+        <button id="createRoomBtn">Create Room</button>
+        <button id="joinRoomBtn">Join Room</button>
+      </div>
+      <div id="onlineStatus">Online mode inactive</div>
+    </div>
+    <div class="scoreboard">
+      <div>X Score: <span id="scoreX">0</span></div>
+      <div>O Score: <span id="scoreO">0</span></div>
+      <div>Target: <span id="targetWins">2</span></div>
+    </div>
+    <div id="status">Player X's turn</div>
+    <div id="board" class="board"></div>
+    <div class="actions">
+      <button id="restartBtn">Restart</button>
+      <button id="fullscreenBtn">Fullscreen</button>
+    </div>
+    <div id="winOverlay" class="overlay hidden">
+      <div class="overlayContent">
+        <div id="winMessage" class="winMessage"></div>
+        <button id="playAgainBtn">Play Again</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

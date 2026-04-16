@@ -1,0 +1,45 @@
+:root { --bg:#f7f7fb; --panel:#0d3861; --text:#e8dee2; --accent:#abcbd0; --win:#ec5bc6; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; background: radial-gradient(circle at top, #313159 0%, var(--bg) 70%); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+#confettiCanvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 90; }
+.container { position: relative; width: min(100%, 420px); padding: 1rem; background: var(--panel); border-radius: 16px; box-shadow: 0 14px 50px rgba(0,0,0,.37); z-index: 100; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.iconBtn { background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; padding: 0.5rem; border-radius: 8px; transition: background .2s ease; }
+.iconBtn:hover { background: rgba(255,255,255,.1); }
+.settingsPage { display: flex; flex-direction: column; gap: 1rem; }
+.settingGroup { background: #1c1f34; border-radius: 12px; padding: 1rem; }
+.settingGroup label { display: flex; flex-direction: column; gap: 0.5rem; font-size: 1rem; }
+.settingGroup select { border-radius: 8px; border: 1px solid #3e416a; background: #1d2141; color: #e6ecff; padding: .5rem .4rem; font-size: 1rem; }
+#saveBtn { align-self: center; margin-top: 1rem; }
+.scoreboard { display: flex; justify-content: space-between; margin-bottom: .5rem; font-size: .95rem; gap: 0.6rem; }
+.scoreboard div { background: #1c1f34; border-radius: 8px; padding: .4rem .6rem; flex: 1; text-align: center; }
+h1 { margin: 0 0 .75rem; text-align: center; font-size: 1.6rem; }
+.onlinePanel { display: none; margin-bottom: .75rem; border: 1px solid #3d4272; background: rgba(16,18,45,0.75); padding: .75rem; border-radius: 12px; }
+.onlinePanel.visible { display: block; }
+.onlinePanel label { display: block; margin-bottom: .5rem; }
+.onlinePanel input { width: 100%; padding: .4rem .5rem; border-radius: 8px; border: 1px solid #3e416a; background: #1d2141; color: #e6ecff; }
+.onlinePanel .onlineControls { display: flex; gap: .5rem; margin-bottom: .5rem; }
+.onlinePanel #onlineStatus { font-size: .8rem; color: #d3d8ff; }
+#status { margin: .5rem 0; text-align: center; font-weight: 600; }
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px; }
+.cell { width: 100px; height: 100px; background: #1c1f34; border-radius: 12px; display: grid; place-items: center; font-size: clamp(2rem, 7vw, 4rem); cursor: pointer; user-select: none; transition: transform .15s ease, background .18s ease; }
+.cell:hover { transform: translateY(-2px); background:#2e3261; }
+.cell.disabled { cursor: default; opacity: 0.8; }
+.cell.x { color:#50c0ff; }
+.cell.o { color:#56ebe8; }
+.cell.winner { background: var(--win); color: #1a1d22; }
+.actions { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+button { border: 0; border-radius: 10px; padding: .6rem 1rem; background: var(--accent); color:#fff; font-weight: 700; cursor: pointer; transition: filter .2s ease; }
+button:hover { filter: brightness(1.05); }
+button:active { transform: scale(.98); }
+
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,.75); display: grid; place-items: center; opacity: 0; pointer-events: none; transform: scale(0.95); transition: transform .2s ease, opacity .2s ease; }
+.overlay.visible { opacity: 1; pointer-events: all; transform: scale(1); }
+.overlayContent { background: #282a41; border: 2px solid var(--accent); border-radius: 16px; padding: 1.25rem 1.25rem .75rem; text-align: center; width: min(92vw, 320px); box-shadow: 0 10px 30px rgba(0,0,0,.55); animation: popIn .25s ease-out; }
+.winMessage { margin-bottom: 0.8rem; font-size: 1.25rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; animation: pulse 1s ease-in-out infinite alternate; }
+#playAgainBtn { padding: 0.6rem 1rem; width: 100%; }
+
+@keyframes popIn { from { transform: translateY(-16px) scale(0.95); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+@keyframes pulse { from { text-shadow: 0 0 4px #fff; } to { text-shadow: 0 0 16px var(--accent); } }
+
+@media (max-width: 420px) { .cell { width: 80px; height: 80px; } }
